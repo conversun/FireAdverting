@@ -13,7 +13,7 @@ extension UIView {
         guard let nibName = nibName else {
             return nil
         }
-        let path = Bundle(for: type(of: self)).path(forResource: "MozartCore", ofType: "bundle") ?? ""
+        let path = Bundle(for: type(of: self)).path(forResource: "FireAdverting", ofType: "bundle") ?? ""
         let bundle = Bundle(path: path)
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
