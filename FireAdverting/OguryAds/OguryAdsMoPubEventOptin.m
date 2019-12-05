@@ -13,7 +13,7 @@
 @end
 @implementation OguryAdsMoPubEventOptin
 
--(void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info {
+- (void)requestRewardedVideoWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup {
     NSString * adunitId = [info objectForKey:@"ad_unit_id"];
     self.optinVideo = [[OguryAdsOptinVideo alloc]initWithAdUnitID:adunitId];
     self.optinVideo.optInVideoDelegate = self;

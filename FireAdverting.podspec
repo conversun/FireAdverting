@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireAdverting'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of GPFireable.'
 
 # This description is used to generate tags and improve search results.
@@ -39,5 +39,6 @@ TODO: Add long description of the pod here.
   s.dependency 'mopub-ios-sdk', '5.10.0'
   s.dependency 'MoPub-AdMob-Adapters', '7.52.0.2'
   s.dependency 'OguryAds', '1.2.2'
+  # s.dependency 'OguryConsentManager', '1.2.6' 
 
 end

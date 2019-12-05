@@ -14,7 +14,7 @@
 
 @implementation OguryAdsMoPubEventInterstitial
 
--(void)requestInterstitialWithCustomEventInfo:(NSDictionary *)info {
+- (void)requestInterstitialWithCustomEventInfo:(NSDictionary *)info adMarkup:(NSString *)adMarkup {
     NSString * adunitId = [info objectForKey:@"ad_unit_id"];
     self.interstitial = [[OguryAdsInterstitial alloc]initWithAdUnitID:adunitId];
     self.interstitial.interstitialDelegate = self;
