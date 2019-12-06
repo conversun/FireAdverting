@@ -17,7 +17,6 @@ public class NativeADSource: NSObject, ADSource {
     public init(_ adID: String) {
         self.adID = adID
         super.init()
-        
     }
 
     public var isAdLoaded: Bool = false
@@ -52,13 +51,13 @@ public class NativeADSource: NSObject, ADSource {
             adRequest.start { [weak self] _, nativeAd, error in
                 guard let `self` = self else { return }
                 self.isAdLoading = false
-                
+
                 guard error == nil else {
                     self.isAdLoaded = false
                     self.adEvent(.didFailToLoad)?.event()
                     return
                 }
-                
+
                 self.nativeAd = nativeAd
                 self.nativeAd?.delegate = self
                 self.isAdLoaded = true
@@ -72,7 +71,7 @@ public class NativeADSource: NSObject, ADSource {
     public func adShow() -> Self {
         guard isAdLoaded else { return self }
         if let nativeAd = nativeAd, let nativeAdView = try? nativeAd.retrieveAdView() {
-            self.addToAdContainer(view: nativeAdView)
+            addToAdContainer(view: nativeAdView)
         }
         return self
     }
