@@ -8,7 +8,9 @@
 
 import Foundation
 import MoPub
+#if canImport(MoPub_AdMob_Adapters)
 import MoPub_AdMob_Adapters
+#endif
 // import MoPub_FacebookAudienceNetwork_Adapters
 // import MoPub_Flurry_Adapters
 // import MoPub_Verizon_Adapters
@@ -124,9 +126,11 @@ private extension NativeAdRendererManager {
         var renderers: [MPNativeAdRendererConfiguration] = []
 
         // OPTIONAL: AdMob native renderer
+        #if canImport(MoPub_AdMob_Adapters)
         if let admobConfig = MPGoogleAdMobNativeRenderer.rendererConfiguration(with: mopubRendererSettings) {
             renderers.append(admobConfig)
         }
+        #endif
 
 //        renderers.append(FacebookNativeAdRenderer.rendererConfiguration(with: mopubRendererSettings))
 //
