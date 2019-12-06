@@ -8,12 +8,20 @@
 
 import Foundation
 import MoPub
+
 #if canImport(MoPub_AdMob_Adapters)
 import MoPub_AdMob_Adapters
 #endif
-// import MoPub_FacebookAudienceNetwork_Adapters
-// import MoPub_Flurry_Adapters
-// import MoPub_Verizon_Adapters
+#if canImport(MoPub_FacebookAudienceNetwork_Adapters)
+import MoPub_FacebookAudienceNetwork_Adapters
+#endif
+#if canImport(MoPub_Flurry_Adapters)
+import MoPub_Flurry_Adapters
+#endif
+#if canImport(MoPub_Verizon_Adapters)
+import MoPub_Verizon_Adapters
+#endif
+
 
 final class NativeAdRendererManager {
     static let shared = NativeAdRendererManager()
@@ -132,18 +140,23 @@ private extension NativeAdRendererManager {
         }
         #endif
 
-//        renderers.append(FacebookNativeAdRenderer.rendererConfiguration(with: mopubRendererSettings))
-//
-//        // OPTIONAL: Flurry native video renderer
-//        if let flurryConfig = FlurryNativeVideoAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
-//            renderers.append(flurryConfig)
-//        }
-//
-//        // OPTIONAL: Verizon native video renderer
-//        if let verizonConfig = MPVerizonNativeAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
-//            renderers.append(verizonConfig)
-//        }
-
+        #if canImport(MoPub_FacebookAudienceNetwork_Adapters)
+        renderers.append(FacebookNativeAdRenderer.rendererConfiguration(with: mopubRendererSettings))
+        #endif
+        
+        // OPTIONAL: Flurry native video renderer
+        #if canImport(MoPub_Flurry_Adapters)
+        if let flurryConfig = FlurryNativeVideoAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
+            renderers.append(flurryConfig)
+        }
+        #endif
+        
+        // OPTIONAL: Verizon native video renderer
+        #if canImport(MoPub_Verizon_Adapters)
+        if let verizonConfig = MPVerizonNativeAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
+            renderers.append(verizonConfig)
+        }
+        #endif
         return renderers
     }
 }
