@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireAdverting'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'A short description of GPFireable.'
 
 # This description is used to generate tags and improve search results.
@@ -31,12 +31,21 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
   s.swift_version = '5.1'
   s.static_framework = true
-  s.source_files = 'FireAdverting/Adverting/**/*', 'FireAdverting/OguryAds/**/*'
-  s.resource_bundles = {
-    'FireAdverting' => ['FireAdverting/Assets/*']
-  }
-
+  
   s.dependency 'mopub-ios-sdk', '5.10.0'
-  s.dependency 'MoPub-AdMob-Adapters', '7.52.0.2'
+  s.dependency 'FireAdverting/Core'
 
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'FireAdverting/Adverting/**/*'
+  end
+
+  s.subspec 'Native' do |ss|
+    ss.source_files = 'FireAdverting/Native/**/*'
+    ss.resource_bundles = {
+      'FireAdverting' => ['FireAdverting/Assets/*']
+    }
+
+    ss.dependency 'FireAdverting/Core'
+    ss.dependency 'MoPub-AdMob-Adapters', '7.52.0.2'
+  end
 end
