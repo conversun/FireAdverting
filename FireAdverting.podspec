@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.static_framework = true
   
   s.dependency 'mopub-ios-sdk', '5.10.0'
-  s.dependency 'FireAdverting/Core'
+  s.default_subspec = 'Core'
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'FireAdverting/Adverting/**/*'
