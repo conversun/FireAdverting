@@ -25,7 +25,20 @@ public class NativeADSource: NSObject, ADSource {
 
     public var adPresentationViewController: UIViewController?
     public var adPresentationContainerView: UIView?
-//    private var nativeAdContainer = UIView()
+    public var networkRendererConfigurations: [MPNativeAdRendererConfiguration] = [] {
+        didSet {
+            NativeAdRendererManager.shared
+                .networkRendererConfigurations = networkRendererConfigurations
+        }
+    }
+
+    public var mopubRendererSettings: MPStaticNativeAdRendererSettings {
+        return NativeAdRendererManager.shared.mopubRendererSettings
+    }
+
+    public var mopubVideoRendererSettings: MOPUBNativeVideoAdRendererSettings {
+        return NativeAdRendererManager.shared.mopubVideoRendererSettings
+    }
 
     var rendererConfigurations: [MPNativeAdRendererConfiguration] {
         return NativeAdRendererManager.shared.enabledRendererConfigurations

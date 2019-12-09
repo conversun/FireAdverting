@@ -4,9 +4,9 @@
 
 ```
 # Core
-pod 'FireAdverting', '~> 0.1.8'
+pod 'FireAdverting', '~> 0.1.9'
 
-# Native (comprise AdMob)
+# Native
 pod 'FireAdverting/Native'
 
 # AdMob

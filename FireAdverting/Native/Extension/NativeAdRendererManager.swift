@@ -73,11 +73,16 @@ final class NativeAdRendererManager {
         }
         return (configs as [StringKeyable]).sorted(inTheSameOrderAs: enabledRendererClassNames)
     }
+
+    /**
+     Renderers for mediated networks
+     */
+    var networkRendererConfigurations: [MPNativeAdRendererConfiguration] = []
 }
 
 // MARK: - Private
 
-private extension NativeAdRendererManager {
+extension NativeAdRendererManager {
     /**
      Ad renderer configurations.
      */
@@ -129,35 +134,35 @@ private extension NativeAdRendererManager {
     /**
      Renderers for mediated networks
      */
-    var networkRendererConfigurations: [MPNativeAdRendererConfiguration] {
-        var renderers: [MPNativeAdRendererConfiguration] = []
-
-        // OPTIONAL: AdMob native renderer
-        #if canImport(MoPub_AdMob_Adapters)
-            if let admobConfig = MPGoogleAdMobNativeRenderer.rendererConfiguration(with: mopubRendererSettings) {
-                renderers.append(admobConfig)
-            }
-        #endif
-
-        #if canImport(MoPub_FacebookAudienceNetwork_Adapters)
-            renderers.append(FacebookNativeAdRenderer.rendererConfiguration(with: mopubRendererSettings))
-        #endif
-
-        // OPTIONAL: Flurry native video renderer
-        #if canImport(MoPub_Flurry_Adapters)
-            if let flurryConfig = FlurryNativeVideoAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
-                renderers.append(flurryConfig)
-            }
-        #endif
-
-        // OPTIONAL: Verizon native video renderer
-        #if canImport(MoPub_Verizon_Adapters)
-            if let verizonConfig = MPVerizonNativeAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
-                renderers.append(verizonConfig)
-            }
-        #endif
-        return renderers
-    }
+//    var networkRendererConfigurations: [MPNativeAdRendererConfiguration] {
+//        var renderers: [MPNativeAdRendererConfiguration] = []
+//
+//        // OPTIONAL: AdMob native renderer
+//        #if canImport(MoPub_AdMob_Adapters)
+//            if let admobConfig = MPGoogleAdMobNativeRenderer.rendererConfiguration(with: mopubRendererSettings) {
+//                renderers.append(admobConfig)
+//            }
+//        #endif
+//
+//        #if canImport(MoPub_FacebookAudienceNetwork_Adapters)
+//            renderers.append(FacebookNativeAdRenderer.rendererConfiguration(with: mopubRendererSettings))
+//        #endif
+//
+//        // OPTIONAL: Flurry native video renderer
+//        #if canImport(MoPub_Flurry_Adapters)
+//            if let flurryConfig = FlurryNativeVideoAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
+//                renderers.append(flurryConfig)
+//            }
+//        #endif
+//
+//        // OPTIONAL: Verizon native video renderer
+//        #if canImport(MoPub_Verizon_Adapters)
+//            if let verizonConfig = MPVerizonNativeAdRenderer.rendererConfiguration(with: mopubVideoRendererSettings) {
+//                renderers.append(verizonConfig)
+//            }
+//        #endif
+//        return renderers
+//    }
 }
 
 // MARK: - Private UserDefaults Storage

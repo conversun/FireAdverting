@@ -29,11 +29,11 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.swift_version = '5.1'
+  # s.swift_version = '5.1'
   s.static_framework = true
   s.default_subspec = 'Core'
 
-  s.dependency 'mopub-ios-sdk', '5.10.0'
+  s.dependency 'mopub-ios-sdk'
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'FireAdverting/Adverting/**/*'
@@ -46,6 +46,5 @@ TODO: Add long description of the pod here.
     }
 
     ss.dependency 'FireAdverting/Core'
-    ss.dependency 'MoPub-AdMob-Adapters', '7.52.0.2'
   end
 end
