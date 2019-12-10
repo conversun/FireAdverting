@@ -20,3 +20,5 @@ pod 'MoPub-AdMob-Adapters', '~> 7.52.0.2'
 pod 'MoPub-Ogury-Adapters'
 
 ```
+
+Others: [https://developers.mopub.com/publishers/mediation/integrate/](https://developers.mopub.com/publishers/mediation/integrate/)
