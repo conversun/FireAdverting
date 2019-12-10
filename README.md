@@ -4,7 +4,7 @@
 
 ```
 # Core
-pod 'FireAdverting', '~> 0.1.9'
+pod 'FireAdverting', '~> 0.1.10'
 
 # Native
 pod 'FireAdverting/Native'
@@ -13,7 +13,7 @@ pod 'FireAdverting/Native'
 pod 'MoPub-AdMob-Adapters', '~> 7.52.0.2'
 
 # Ogury
-pod 'MoPub-Ogury-Adapters', '~> 5.10.0'
-pod 'OguryConsentManager', '~> 1.2.6'
+pod 'MoPub-Ogury-Adapters'
+pod 'OguryConsentManager'
 
 ```
