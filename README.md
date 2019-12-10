@@ -11,7 +11,7 @@ pod 'FireAdverting/Native'
 
 ```
 
-Adapters
+## Adapters
 ```
 # AdMob
 pod 'MoPub-AdMob-Adapters', '~> 7.52.0.2'
