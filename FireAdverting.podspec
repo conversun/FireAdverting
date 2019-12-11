@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireAdverting'
-  s.version          = '0.1.10'
+  s.version          = '0.1.11'
   s.summary          = 'A short description of GPFireable.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/didez/FireAdverting.git'
+  s.homepage         = 'https://github.com/conversun/FireAdverting.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Conver' => 'conversun@gmail.com' }
-  s.source           = { :git => 'https://github.com/didez/FireAdverting.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/conversun/FireAdverting.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.static_framework = true
   s.default_subspec = 'Core'
 
-  s.dependency 'mopub-ios-sdk'
+  s.dependency 'mopub-ios-sdk', "~> 5.10.0"
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'FireAdverting/Adverting/**/*'
