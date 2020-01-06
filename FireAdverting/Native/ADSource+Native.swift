@@ -23,8 +23,8 @@ public class NativeADSource: NSObject, ADSource {
 
     public var isAdLoading: Bool = false
 
-    public var adPresentationViewController: UIViewController?
-    public var adPresentationContainerView: UIView?
+    public weak var adPresentationViewController: UIViewController?
+    public weak var adPresentationContainerView: UIView?
     public var networkRendererConfigurations: [MPNativeAdRendererConfiguration] = [] {
         didSet {
             NativeAdRendererManager.shared
@@ -82,7 +82,7 @@ public class NativeADSource: NSObject, ADSource {
 
     @discardableResult
     public func adShow() -> Self {
-        guard isAdLoaded else { return self }
+        guard isAdLoaded, adPresentationViewController != nil else { return self }
         if let nativeAd = nativeAd, let nativeAdView = try? nativeAd.retrieveAdView() {
             addToAdContainer(view: nativeAdView)
         }
