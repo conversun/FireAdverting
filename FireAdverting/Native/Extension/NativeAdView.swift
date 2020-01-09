@@ -15,12 +15,12 @@ import UIKit
 @IBDesignable
 public class NativeAdView: UIView {
     // IBOutlets
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var mainTextLabel: UILabel!
-    @IBOutlet var callToActionLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
-    @IBOutlet var mainImageView: UIImageView!
-    @IBOutlet var privacyInformationIconImageView: UIImageView!
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var mainTextLabel: UILabel!
+    @IBOutlet public var callToActionLabel: UILabel!
+    @IBOutlet public var iconImageView: UIImageView!
+    @IBOutlet public var mainImageView: UIImageView!
+    @IBOutlet public var privacyInformationIconImageView: UIImageView!
 //    @IBOutlet weak var videoView: UIView!
 
     // IBInspectable
