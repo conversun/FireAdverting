@@ -71,7 +71,7 @@ final class NativeAdRendererManager {
         let configs = rendererConfigurations.filter {
             !disabledAdRenderers.contains($0.rendererClassName)
         }
-        return (configs as [StringKeyable]).sorted(inTheSameOrderAs: enabledRendererClassNames)
+        return configs
     }
 
     /**
