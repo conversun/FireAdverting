@@ -80,6 +80,13 @@ public class NativeAdView: UIView {
         setupNib()
         contentView?.prepareForInterfaceBuilder()
     }
+    
+//    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+//        let margin: CGFloat = 100
+//        let area = bounds.insetBy(dx: -margin, dy: -margin)
+//        return area.contains(point)
+//    }
+    
 }
 
 extension NativeAdView: MPNativeAdRendering {
