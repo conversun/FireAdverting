@@ -10,7 +10,7 @@ import MoPub
 public class NativeADSource: NSObject, ADSource {
     public var adActions: [(type: ADEvent, event: () -> Void)] = []
 
-    private var nativeAd: MPNativeAd?
+    public var nativeAd: MPNativeAd?
 
     private let adID: String
 
@@ -23,7 +23,7 @@ public class NativeADSource: NSObject, ADSource {
 
     public var isAdLoading: Bool = false
     
-    public var adViewTappedGesture: UITapGestureRecognizer?
+    public var adViewTappedGesture: [UIGestureRecognizer]?
 
     public weak var adPresentationViewController: UIViewController?
     public weak var adPresentationContainerView: UIView?
@@ -86,12 +86,20 @@ public class NativeADSource: NSObject, ADSource {
     public func adShow() -> Self {
         guard isAdLoaded, adPresentationViewController != nil else { return self }
         if let nativeAd = nativeAd, let nativeAdView = try? nativeAd.retrieveAdView() {
-            nativeAdView.gestureRecognizers?.forEach {
-                if let tapGesture = $0 as? UITapGestureRecognizer {
-                    adViewTappedGesture = tapGesture
-                    debugPrint("gestureRecognizers", $0)
-                }
-            }
+//            nativeAdView.gestureRecognizers?.forEach {
+//                if let tapGesture = $0 as? UITapGestureRecognizer {
+//                    adViewTappedGesture = [tapGesture]
+//                }
+//            }
+//
+//            if adViewTappedGesture == nil {
+//                nativeAdView.subviews.forEach {
+//                    if let gestures = $0.gestureRecognizers {
+//                        adViewTappedGesture = gestures
+//                    }
+//                }
+//            }
+            
             addToAdContainer(view: nativeAdView)
         }
         return self

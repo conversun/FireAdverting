@@ -15,7 +15,7 @@ import UIKit
 @IBDesignable
 public class NativeAdView: UIView {
     // IBOutlets
-    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var titleLabel: UILabelPadding!
     @IBOutlet public var mainTextLabel: UILabel!
     @IBOutlet public var callToActionLabel: UILabel!
     @IBOutlet public var iconImageView: UIImageView!
@@ -81,11 +81,11 @@ public class NativeAdView: UIView {
         contentView?.prepareForInterfaceBuilder()
     }
     
-//    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-//        let margin: CGFloat = 100
-//        let area = bounds.insetBy(dx: -margin, dy: -margin)
-//        return area.contains(point)
-//    }
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let margin: CGFloat = 100
+        let area = bounds.insetBy(dx: -margin, dy: -margin)
+        return area.contains(point)
+    }
     
 }
 
@@ -120,3 +120,48 @@ extension NativeAdView: MPNativeAdRendering {
 //        return videoView
 //    }
 }
+
+
+public class UILabelPadding : UILabel {
+    
+    private var padding = UIEdgeInsets.zero
+    
+    @IBInspectable
+    var paddingLeft: CGFloat {
+        get { return padding.left }
+        set { padding.left = newValue }
+    }
+    
+    @IBInspectable
+    var paddingRight: CGFloat {
+        get { return padding.right }
+        set { padding.right = newValue }
+    }
+    
+    @IBInspectable
+    var paddingTop: CGFloat {
+        get { return padding.top }
+        set { padding.top = newValue }
+    }
+    
+    @IBInspectable
+    var paddingBottom: CGFloat {
+        get { return padding.bottom }
+        set { padding.bottom = newValue }
+    }
+    
+    override public func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: padding))
+    }
+    
+    override public func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        let insets = self.padding
+        var rect = super.textRect(forBounds: bounds.inset(by: insets), limitedToNumberOfLines: numberOfLines)
+        rect.origin.x    -= insets.left
+        rect.origin.y    -= insets.top
+        rect.size.width  += (insets.left + insets.right)
+        rect.size.height += (insets.top + insets.bottom)
+        return rect
+    }
+}
+
