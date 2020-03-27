@@ -22,6 +22,8 @@ public class NativeADSource: NSObject, ADSource {
     public var isAdLoaded: Bool = false
 
     public var isAdLoading: Bool = false
+    
+    public var adViewTappedGesture: UITapGestureRecognizer?
 
     public weak var adPresentationViewController: UIViewController?
     public weak var adPresentationContainerView: UIView?
@@ -84,6 +86,12 @@ public class NativeADSource: NSObject, ADSource {
     public func adShow() -> Self {
         guard isAdLoaded, adPresentationViewController != nil else { return self }
         if let nativeAd = nativeAd, let nativeAdView = try? nativeAd.retrieveAdView() {
+            nativeAdView.gestureRecognizers?.forEach {
+                if let tapGesture = $0 as? UITapGestureRecognizer {
+                    adViewTappedGesture = tapGesture
+                    debugPrint("gestureRecognizers", $0)
+                }
+            }
             addToAdContainer(view: nativeAdView)
         }
         return self
