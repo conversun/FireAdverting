@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireAdverting'
-  s.version          = '0.1.26'
+  s.version          = '0.1.27'
   s.summary          = 'A short description of GPFireable.'
 
 # This description is used to generate tags and improve search results.
@@ -29,11 +29,12 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.swift_version = '5.1'
+  s.swift_version = '5.2'
   s.static_framework = true
   s.default_subspec = 'Core'
 
-  s.dependency 'mopub-ios-sdk'
+  s.dependency 'mopub-ios-sdk/Core'
+  s.dependency 'mopub-ios-sdk/NativeAds'
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'FireAdverting/Adverting/**/*'
